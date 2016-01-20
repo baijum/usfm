@@ -88,6 +88,8 @@ func (s *Scanner) scanMarker() (tok Token, lit string) {
 	switch strings.ToUpper(buf.String()) {
 	case `\ID`, `\ID1`:
 		return MarkerID1, buf.String()
+	case `\IDE`:
+		return MarkerIde, buf.String()
 	case `\IMTE`, `\IMTE1`:
 		return MarkerImte1, buf.String()
 	case `\V`:
@@ -131,7 +133,7 @@ func (s *Scanner) scanText() (tok Token, lit string) {
 	for {
 		if ch := s.read(); ch == eof {
 			break
-		} else if !unicode.IsLetter(ch) && !unicode.IsDigit(ch) {
+		} else if !unicode.IsLetter(ch) && !unicode.IsPunct(ch) && !unicode.IsDigit(ch) {
 			s.unread()
 			break
 		} else {

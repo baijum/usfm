@@ -16,6 +16,9 @@ const (
 	// MarkerID1 represents '\id' or '\id1' marker
 	MarkerID1
 
+	// MarkerIde represents '\ide' marker
+	MarkerIde
+
 	// MarkerImte1 represents '\imte' or '\imte1' marker
 	MarkerImte1
 

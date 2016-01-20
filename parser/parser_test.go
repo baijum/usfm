@@ -34,6 +34,25 @@ func TestParser(t *testing.T) {
 			},
 		},
 		{
+			s: `\ide 65001 - Unicode (UTF-8)`,
+			content: &parser.Content{
+				Type:  "book",
+				Value: "",
+				Children: []*parser.Content{
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\ide",
+						Children: []*parser.Content{
+							&parser.Content{Type: "text", Value: "65001"},
+							&parser.Content{Type: "text", Value: "-"},
+							&parser.Content{Type: "text", Value: "Unicode"},
+							&parser.Content{Type: "text", Value: "(UTF-8)"},
+						},
+					},
+				},
+			},
+		},
+		{
 			s: `\v 1 T1 200`,
 			content: &parser.Content{
 				Type:  "book",
