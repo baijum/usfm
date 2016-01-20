@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/baijum/usfm.svg?branch=master)](https://travis-ci.org/baijum/usfm)
 [![Coverage Status](https://coveralls.io/repos/baijum/usfm/badge.svg?branch=master&service=github)](https://coveralls.io/github/baijum/usfm?branch=master)
 [![GoDoc](https://godoc.org/github.com/baijum/usfm?status.svg)](https://godoc.org/github.com/baijum/usfm)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A toolkit to analyze, parse & convert [USFM formatted text
 files](http://paratext.org/about/usfm)
