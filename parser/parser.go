@@ -27,7 +27,7 @@ func (p *Parser) Parse() (*Content, error) {
 	for {
 		// Read a field.
 		tok, lit := p.scanIgnoreWhitespace()
-		if tok == MarkerID1 {
+		if tok == MarkerID {
 			marker := &Content{}
 			marker.Type = "marker"
 			marker.Value = lit

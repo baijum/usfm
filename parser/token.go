@@ -13,8 +13,8 @@ const (
 	// EOF represents end of file
 	EOF
 
-	// MarkerID1 represents '\id' or '\id1' marker
-	MarkerID1
+	// MarkerID represents '\id' or '\id1' marker
+	MarkerID
 
 	// MarkerIde represents '\ide' marker
 	MarkerIde

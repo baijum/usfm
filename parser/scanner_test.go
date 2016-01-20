@@ -23,7 +23,7 @@ func TestScan(t *testing.T) {
 		{s: "\r", tok: parser.Whitespace, lit: "\r"},
 		{s: "\n", tok: parser.Whitespace, lit: "\n"},
 		{s: " \n\t\r", tok: parser.Whitespace, lit: " \n\t\r"},
-		{s: `\id`, tok: parser.MarkerID1, lit: `\id`},
+		{s: `\id`, tok: parser.MarkerID, lit: `\id`},
 		{s: `\imte`, tok: parser.MarkerImte1, lit: `\imte`},
 		{s: `\imte1`, tok: parser.MarkerImte1, lit: `\imte1`},
 		{s: "123", tok: parser.Number, lit: "123"},

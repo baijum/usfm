@@ -86,8 +86,8 @@ func (s *Scanner) scanMarker() (tok Token, lit string) {
 	}
 
 	switch strings.ToUpper(buf.String()) {
-	case `\ID`, `\ID1`:
-		return MarkerID1, buf.String()
+	case `\ID`:
+		return MarkerID, buf.String()
 	case `\IDE`:
 		return MarkerIde, buf.String()
 	case `\IMTE`, `\IMTE1`:
