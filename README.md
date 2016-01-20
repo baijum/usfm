@@ -10,7 +10,7 @@ files](http://paratext.org/about/usfm)
 
 ## Development
 
-If you are interested to contribute to this project, follow the
+If you are interested to contribute to this project, please follow the
 instruction given here.
 
 1. Install [Go
