@@ -19,6 +19,9 @@ const (
 	// MarkerImte1 represents '\imte' or '\imte1' marker
 	MarkerImte1
 
+	// MarkerV represents '\v' marker
+	MarkerV
+
 	// Number represents a number (verse, chapter)
 	Number
 

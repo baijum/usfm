@@ -54,6 +54,34 @@ func (p *Parser) Parse() (*Content, error) {
 				return nil, fmt.Errorf("found %q, expected book code", lit)
 			}
 		}
+		if tok == MarkerV {
+			marker := &Content{}
+			marker.Type = "marker"
+			marker.Value = lit
+			book.Children = append(book.Children, marker)
+			tok, lit := p.scanIgnoreWhitespace()
+			if tok == Number {
+				child := &Content{}
+				child.Type = "versenumber"
+				child.Value = lit
+				marker.Children = append(marker.Children, child)
+				for {
+					tok, lit := p.scanIgnoreWhitespace()
+					if !(tok == Text || tok == Number) {
+						break
+					} else {
+						child := &Content{}
+						child.Type = "text"
+						child.Value = lit
+						marker.Children = append(marker.Children, child)
+					}
+				}
+
+			} else {
+				return nil, fmt.Errorf("found %q, expected verse number", lit)
+			}
+
+		}
 		if tok == EOF {
 			break
 		}

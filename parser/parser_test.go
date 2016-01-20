@@ -33,6 +33,24 @@ func TestParser(t *testing.T) {
 				},
 			},
 		},
+		{
+			s: `\v 1 T1 200`,
+			content: &parser.Content{
+				Type:  "book",
+				Value: "",
+				Children: []*parser.Content{
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\v",
+						Children: []*parser.Content{
+							&parser.Content{Type: "versenumber", Value: "1"},
+							&parser.Content{Type: "text", Value: "T1"},
+							&parser.Content{Type: "text", Value: "200"},
+						},
+					},
+				},
+			},
+		},
 	}
 
 	for i, tt := range tests {
