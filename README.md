@@ -33,7 +33,7 @@ are running locally using this command:
 I also recommend to run [go fmt](https://golang.org/cmd/gofmt/), [go
 vet](https://golang.org/cmd/vet/) and
 [golint](https://github.com/golang/lint) commands before sending pull
-request.  This will help to maintain the quality.
+request.  This will help us to maintain the quality of code.
 
 
 ## Credits
