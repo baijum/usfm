@@ -6,7 +6,11 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A toolkit to analyze, parse & convert [USFM formatted text
-files](http://paratext.org/about/usfm)
+files](http://paratext.org/about/usfm).
+
+Visit the [wiki for
+documentation](https://github.com/baijum/usfm/wiki) about the usage,
+architecture etc.,
 
 ## Development
 
@@ -28,12 +32,15 @@ are running locally using this command:
 
     go test ./...
 
-I also recommend to run [go fmt](https://golang.org/cmd/gofmt/), [go
-vet](https://golang.org/cmd/vet/) and
-[golint](https://github.com/golang/lint) commands before sending pull
-request.  This will help us to maintain the quality of code.  You can
-run the `run.sh` shell script to run all the above mentioned tools
-including tests.
+I also recommend to run these tools:
+
+1. [go fmt](https://golang.org/cmd/gofmt/) - format the code as per the Go community standard
+2. [go vet](https://golang.org/cmd/vet/) - reports suspicious constructs
+3. [golint](https://github.com/golang/lint) - reports more lint issues
+
+Please run these commands before sending pull request.  This will help
+us to maintain the quality of code.  You can run the `run.sh` shell
+script to run all the above mentioned tools including tests.
 
 ## Credits
 
