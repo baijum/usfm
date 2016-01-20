@@ -13,15 +13,13 @@ files](http://paratext.org/about/usfm)
 If you are interested to contribute to this project, follow the
 instruction given here.
 
-1. Install [Git](http://git-scm.com/) and clone this repository
-2. Install [Go
+1. Install [Go
 compiler](http://muthukadan.net/golang/an-introduction-to-go-programming.html)
-3. Run this command to get code: `go get github.com/baijum/usfm`
+2. Run this command to get source code: `go get github.com/baijum/usfm`
+   ([Git](http://git-scm.com/) is a prerequisite)
 
 The code will be available under `$GOPATH/src/github.com/baijum/usfm`
-
-You will also a get a binary executable under `$GOPATH/bin/usfm` which
-you can run to convert USFM files to various formats.
+You will also a get an executable binary under `$GOPATH/bin/usfm`.
 
 You can fork the project from [Github](https://github.com/baijum/usfm)
 and push your changes there.  Later you can send pull request with
