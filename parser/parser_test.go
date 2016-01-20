@@ -51,6 +51,10 @@ func TestParser(t *testing.T) {
 				},
 			},
 		},
+
+		// Errors
+		{s: `\id X T1 200`, err: `found "X", expected book code`},
+		{s: `\v X T1 200`, err: `found "X", expected verse number`},
 	}
 
 	for i, tt := range tests {
