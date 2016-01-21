@@ -53,6 +53,23 @@ func TestParser(t *testing.T) {
 			},
 		},
 		{
+			s: `\c 42`,
+			content: &parser.Content{
+				Type:  "book",
+				Value: "",
+				Children: []*parser.Content{
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\c",
+						Children: []*parser.Content{
+							&parser.Content{Type: "chapternumber", Value: "42"},
+						},
+					},
+				},
+			},
+		},
+
+		{
 			s: `\v 1 T1 200`,
 			content: &parser.Content{
 				Type:  "book",

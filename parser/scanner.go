@@ -92,6 +92,8 @@ func (s *Scanner) scanMarker() (tok Token, lit string) {
 		return MarkerIde, buf.String()
 	case `\IMTE`, `\IMTE1`:
 		return MarkerImte1, buf.String()
+	case `\C`:
+		return MarkerC, buf.String()
 	case `\V`:
 		return MarkerV, buf.String()
 	}

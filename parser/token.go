@@ -22,6 +22,9 @@ const (
 	// MarkerImte1 represents '\imte' or '\imte1' marker
 	MarkerImte1
 
+	// MarkerC represents '\c' marker
+	MarkerC
+
 	// MarkerV represents '\v' marker
 	MarkerV
 

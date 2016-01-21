@@ -71,7 +71,21 @@ func (p *Parser) Parse() (*Content, error) {
 				}
 			}
 		}
-
+		if tok == MarkerC {
+			marker := &Content{}
+			marker.Type = "marker"
+			marker.Value = lit
+			book.Children = append(book.Children, marker)
+			tok, lit := p.scanIgnoreWhitespace()
+			if tok == Number {
+				child := &Content{}
+				child.Type = "chapternumber"
+				child.Value = lit
+				marker.Children = append(marker.Children, child)
+			} else {
+				return nil, fmt.Errorf("found %q, expected chapter number", lit)
+			}
+		}
 		if tok == MarkerV {
 			marker := &Content{}
 			marker.Type = "marker"
