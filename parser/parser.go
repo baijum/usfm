@@ -32,7 +32,7 @@ func (p *Parser) Parse() (*Content, error) {
 			marker.Type = "marker"
 			marker.Value = lit
 			book.Children = append(book.Children, marker)
-			tok, lit := p.scanIgnoreWhitespace()
+			tok, lit = p.scanIgnoreWhitespace()
 			if tok == Text && len([]rune(lit)) == 3 {
 				child := &Content{}
 				child.Type = "bookcode"
@@ -40,7 +40,7 @@ func (p *Parser) Parse() (*Content, error) {
 				book.Value = lit
 				marker.Children = append(marker.Children, child)
 				for {
-					tok, lit := p.scanIgnoreWhitespace()
+					tok, lit = p.scanIgnoreWhitespace()
 					if !(tok == Text || tok == Number) {
 						break
 					} else {
@@ -60,7 +60,7 @@ func (p *Parser) Parse() (*Content, error) {
 			marker.Value = lit
 			book.Children = append(book.Children, marker)
 			for {
-				tok, lit := p.scanIgnoreWhitespace()
+				tok, lit = p.scanIgnoreWhitespace()
 				if !(tok == Text || tok == Number) {
 					break
 				} else {
@@ -76,7 +76,7 @@ func (p *Parser) Parse() (*Content, error) {
 			marker.Type = "marker"
 			marker.Value = lit
 			book.Children = append(book.Children, marker)
-			tok, lit := p.scanIgnoreWhitespace()
+			tok, lit = p.scanIgnoreWhitespace()
 			if tok == Number {
 				child := &Content{}
 				child.Type = "chapternumber"
@@ -91,14 +91,14 @@ func (p *Parser) Parse() (*Content, error) {
 			marker.Type = "marker"
 			marker.Value = lit
 			book.Children = append(book.Children, marker)
-			tok, lit := p.scanIgnoreWhitespace()
+			tok, lit = p.scanIgnoreWhitespace()
 			if tok == Number {
 				child := &Content{}
 				child.Type = "versenumber"
 				child.Value = lit
 				marker.Children = append(marker.Children, child)
 				for {
-					tok, lit := p.scanIgnoreWhitespace()
+					tok, lit = p.scanIgnoreWhitespace()
 					if !(tok == Text || tok == Number) {
 						break
 					} else {

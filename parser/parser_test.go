@@ -87,6 +87,47 @@ func TestParser(t *testing.T) {
 				},
 			},
 		},
+		{
+			s: `\id RUT T1 T2 \ide UTF-8 \c 1 \v 1 T3 200`,
+			content: &parser.Content{
+				Type:  "book",
+				Value: "RUT",
+				Children: []*parser.Content{
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\id",
+						Children: []*parser.Content{
+							&parser.Content{Type: "bookcode", Value: "RUT"},
+							&parser.Content{Type: "text", Value: "T1"},
+							&parser.Content{Type: "text", Value: "T2"},
+						},
+					},
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\ide",
+						Children: []*parser.Content{
+							&parser.Content{Type: "text", Value: "UTF-8"},
+						},
+					},
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\c",
+						Children: []*parser.Content{
+							&parser.Content{Type: "chapternumber", Value: "1"},
+						},
+					},
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\v",
+						Children: []*parser.Content{
+							&parser.Content{Type: "versenumber", Value: "1"},
+							&parser.Content{Type: "text", Value: "T3"},
+							&parser.Content{Type: "text", Value: "200"},
+						},
+					},
+				},
+			},
+		},
 
 		// Errors
 		{s: `\id X T1 200`, err: `found "X", expected book code`},
