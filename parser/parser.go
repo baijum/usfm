@@ -42,6 +42,7 @@ func (p *Parser) Parse() (*Content, error) {
 				for {
 					tok, lit = p.scanIgnoreWhitespace()
 					if !(tok == Text || tok == Number) {
+						p.unscan()
 						break
 					} else {
 						child := &Content{}
@@ -53,8 +54,7 @@ func (p *Parser) Parse() (*Content, error) {
 			} else {
 				return nil, fmt.Errorf("found %q, expected book code", lit)
 			}
-		}
-		if tok == MarkerIde {
+		} else if tok == MarkerIde {
 			marker := &Content{}
 			marker.Type = "marker"
 			marker.Value = lit
@@ -62,6 +62,7 @@ func (p *Parser) Parse() (*Content, error) {
 			for {
 				tok, lit = p.scanIgnoreWhitespace()
 				if !(tok == Text || tok == Number) {
+					p.unscan()
 					break
 				} else {
 					child := &Content{}
@@ -70,8 +71,7 @@ func (p *Parser) Parse() (*Content, error) {
 					marker.Children = append(marker.Children, child)
 				}
 			}
-		}
-		if tok == MarkerC {
+		} else if tok == MarkerC {
 			marker := &Content{}
 			marker.Type = "marker"
 			marker.Value = lit
@@ -85,8 +85,7 @@ func (p *Parser) Parse() (*Content, error) {
 			} else {
 				return nil, fmt.Errorf("found %q, expected chapter number", lit)
 			}
-		}
-		if tok == MarkerV {
+		} else if tok == MarkerV {
 			marker := &Content{}
 			marker.Type = "marker"
 			marker.Value = lit
@@ -100,6 +99,7 @@ func (p *Parser) Parse() (*Content, error) {
 				for {
 					tok, lit = p.scanIgnoreWhitespace()
 					if !(tok == Text || tok == Number) {
+						p.unscan()
 						break
 					} else {
 						child := &Content{}
@@ -112,8 +112,7 @@ func (p *Parser) Parse() (*Content, error) {
 			} else {
 				return nil, fmt.Errorf("found %q, expected verse number", lit)
 			}
-		}
-		if tok == EOF {
+		} else if tok == EOF {
 			break
 		}
 	}
