@@ -88,7 +88,7 @@ func TestParser(t *testing.T) {
 			},
 		},
 		{
-			s: `\id RUT T1 T2 \ide UTF-8 \c 1 \v 1 T3 200`,
+			s: `\id RUT T1 T2 \ide UTF-8 \c 1 \v 1 T3 200 \v 28 T4 T5`,
 			content: &parser.Content{
 				Type:  "book",
 				Value: "RUT",
@@ -123,6 +123,15 @@ func TestParser(t *testing.T) {
 							&parser.Content{Type: "versenumber", Value: "1"},
 							&parser.Content{Type: "text", Value: "T3"},
 							&parser.Content{Type: "text", Value: "200"},
+						},
+					},
+					&parser.Content{
+						Type:  "marker",
+						Value: "\\v",
+						Children: []*parser.Content{
+							&parser.Content{Type: "versenumber", Value: "28"},
+							&parser.Content{Type: "text", Value: "T4"},
+							&parser.Content{Type: "text", Value: "T5"},
 						},
 					},
 				},
