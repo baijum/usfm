@@ -5,13 +5,13 @@ import (
 	"os"
 	"strings"
 
-	"github.com/baijum/usfm/render"
+	"github.com/baijum/usfm/renderer"
 )
 
 func main() {
-	o := render.Options{}
+	o := renderer.Options{}
 	s := ""
-	html := render.NewHTML(o, strings.NewReader(s))
+	html := renderer.NewHTML(o, strings.NewReader(s))
 	f, _ := os.Create("out.html")
 	defer f.Close()
 	err := html.Render(f)
