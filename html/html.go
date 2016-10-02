@@ -1,4 +1,4 @@
-package renderer
+package html
 
 import (
 	"fmt"
@@ -7,8 +7,8 @@ import (
 	"github.com/baijum/usfm/parser"
 )
 
-// NewHTML renderer
-func NewHTML(o Options, r io.Reader) Renderer {
+// New HTML renderer
+func New(o Options, r io.Reader) Renderer {
 	html := &HTML{}
 	html.usfmParser = parser.NewParser(r)
 	return html
